@@ -2,10 +2,10 @@ import React, { Component } from "react";
 
 export default class TodoInput extends React.Component {
     render() {
-        const { item, handleChange } = this.props
+        const { item, handleChange, handleSubmit } = this.props;
         return (
             <div className="card card-body my-3">
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div className="input-group">
                         <div className="input-group-prepend">
                             <div className="input-group-text bg-primary text-white">
@@ -14,11 +14,11 @@ export default class TodoInput extends React.Component {
                         </div>
                         <input type="text" className="form-control text-capitalize" placeholder="Add another todo item" value={item} onChange={handleChange}></input>
                     </div>
-                    <button type="submit" className="btn btn-block btn-primary mt-3">
+                    <button type="submit" className="btn btn-block btn-primary mt-3 text-capitalize">
                         Add item
                     </button>
                 </form>
             </div>
-        )
+        );
     }
 }
