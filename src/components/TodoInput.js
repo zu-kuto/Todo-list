@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export default class TodoInput extends React.Component {
+export default class TodoInput extends Component {
     render() {
         const { item, handleChange, handleSubmit } = this.props;
         return (

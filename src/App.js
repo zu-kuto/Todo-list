@@ -1,22 +1,3 @@
-
-// import React from 'react';
-// import TodoItem from './components/TodoItem';
-// import TodoList from './components/TodoList';
-// import './App.css';
-// import TodoInput from './components/TodoInput';
-
-// function App() {
-//   return (
-//     <div>
-//       Hello from main app
-//       <TodoInput/>
-//       <TodoList/>
-//     </div>
-//   );
-// }
-
-// export default App;
-
 import React from "react";
 import TodoItem from "./components/TodoItem";
 import TodoList from "./components/TodoList";
@@ -56,28 +37,40 @@ class App extends React.Component {
       id: uuid(),
       editItem: false
     });
-
   };
 
   clearList = () => {
     this.setState ({
       items: []
-    })
-  }
+    });
+  };
+
+  handleDelete = (id) => {
+    const filteredItems = this.state.items.filter(item => item.id !==id);
+    this.setState({
+      items:filteredItems
+    });
+  };
 
   render() {
     return (
       <div className="container">
         <div className="row">
-          <div className="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 ">
+          <div className="col-10 mx-auto col-md-8 mt-4">
             <h3 className="text-capitalize text-center">Todo Input</h3>
-            <TodoInput item={this.state.item} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
-            <TodoList items={this.state.items} clearList={this.clearList}/>
+            <TodoInput
+              item={this.state.item}
+              handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit} />
+            <TodoList
+              items={this.state.items}
+              clearList={this.clearList}
+              handleDelete={this.handleDelete}/>
           </div>
         </div>
       </div>
     );
-  }
+  } z
 }
 
 export default App;
