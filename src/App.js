@@ -25,18 +25,27 @@ class App extends React.Component {
     e.preventDefault();
 
     const newItem = {
-      id: this.state.id,
+      id: uuid(),
       title: this.state.item
     };
 
-    const updatedItems = [...this.state.item, newItem];
+    this.state.items.push(newItem);
+
+    this.setState({
+      items: this.state.items,
+      item: '',
+      editItem: false
+    });
+
+    
+    /* const updatedItems = [...this.state.item, newItem];
 
     this.setState({
       items: updatedItems,
       item: '',
       id: uuid(),
       editItem: false
-    });
+    });*/
   };
 
   clearList = () => {
