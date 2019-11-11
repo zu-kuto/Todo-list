@@ -1,6 +1,5 @@
 //@ts-check
 import React from "react";
-import TodoItem from "./components/TodoItem";
 import TodoList from "./components/TodoList";
 import TodoInput from "./components/TodoInput";
 
